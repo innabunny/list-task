@@ -14,14 +14,14 @@
   </head>
   <body>
     <div
-      class="position-absolute top-0 end-0 text-end d-flex flex-column gap-1 m-3"
+      class="position-absolute top-0 end-0 text-end d-flex flex-column gap-1 m-4"
     >
       <p id="output-date" class="h2 mt-3">Дата</p>
       <p id="output-time" class="h2">Время</p>
-      <div>
+      <!-- <div>
         <button id="btn-date" class="btn btn-info">дата</button>
         <button id="btn-hour" class="btn btn-info">время</button>
-      </div>
+      </div> -->
     </div>
     <div class="container-sm w-50">
       <h1 class="h1 p-3">Список задач</h1>
@@ -34,8 +34,16 @@
           required
           id="input"
         />
+
         <div class="col-12">
-          <button class="btn btn-primary m-1" type="submit">Создать</button>
+          <button
+            class="btn btn-primary m-1"
+            type="submit"
+            id="submit"
+            disabled
+          >
+            Создать
+          </button>
         </div>
       </form>
       <h2 class="h2 text-center p-3">Мои задачи</h2>

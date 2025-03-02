@@ -4,7 +4,8 @@ const form = document.getElementById('form'),
   outputDate = document.getElementById('output-date'),
   outputTime = document.getElementById('output-time'),
   btnDate = document.getElementById('btn-date'),
-  btnHour = document.getElementById('btn-hour');
+  btnHour = document.getElementById('btn-hour'),
+  btnSubmit = document.getElementById('submit');
 
 const initialArray = [
   {
@@ -31,18 +32,23 @@ const initialArray = [
 
 form.addEventListener('submit', (evt) => {
   evt.preventDefault();
-  if (input.value.trim() === 0) {
-    return;
-  }
-  // list.insertAdjacentHTML();
   const newTask = {
     task: input.value,
     checked: false,
   };
-  // getTemplate(newTask);
+
   initialArray.push(newTask);
   input.value = '';
   render(initialArray);
+});
+
+input.addEventListener('input', () => {
+  if (input.value.trim().length === 0) {
+    btnSubmit.setAttribute('disabled', '');
+    return;
+  } else {
+    btnSubmit.removeAttribute('disabled');
+  }
 });
 
 //Делегирование событий
@@ -102,9 +108,6 @@ function render(arr) {
 render(initialArray);
 
 const period = new Date();
-
-console.log(period.toLocaleDateString());
-console.log(period.toLocaleTimeString());
 
 function updateClock(value) {
   outputDate.textContent = value.toLocaleDateString();
