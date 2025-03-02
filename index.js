@@ -1,6 +1,10 @@
 const form = document.getElementById('form'),
   input = document.getElementById('input'),
-  list = document.getElementById('list');
+  list = document.getElementById('list'),
+  outputDate = document.getElementById('output-date'),
+  outputTime = document.getElementById('output-time'),
+  btnDate = document.getElementById('btn-date'),
+  btnHour = document.getElementById('btn-hour');
 
 const initialArray = [
   {
@@ -96,3 +100,24 @@ function render(arr) {
 }
 
 render(initialArray);
+
+const period = new Date();
+
+console.log(period.toLocaleDateString());
+console.log(period.toLocaleTimeString());
+
+function updateClock(value) {
+  outputDate.textContent = value.toLocaleDateString();
+  outputTime.textContent = value.toLocaleTimeString();
+}
+
+updateClock(period);
+
+setInterval(() => {
+  const now = new Date();
+  updateClock(now);
+}, 1000);
+
+btnDate.onclick(() => {
+  updateClock();
+});

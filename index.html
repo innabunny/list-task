@@ -13,7 +13,17 @@
     <title>Список задач</title>
   </head>
   <body>
-    <div class="container-sm">
+    <div
+      class="position-absolute top-0 end-0 text-end d-flex flex-column gap-1 m-3"
+    >
+      <p id="output-date" class="h2 mt-3">Дата</p>
+      <p id="output-time" class="h2">Время</p>
+      <div>
+        <button id="btn-date" class="btn btn-info">дата</button>
+        <button id="btn-hour" class="btn btn-info">время</button>
+      </div>
+    </div>
+    <div class="container-sm w-50">
       <h1 class="h1 p-3">Список задач</h1>
       <form class="form-control row g-3 m-1" id="form">
         <label class="form-label">Добавить новую задачу</label>
@@ -29,8 +39,7 @@
         </div>
       </form>
       <h2 class="h2 text-center p-3">Мои задачи</h2>
-      <ol class="list-group list-group-flush m-2" id="list">
-        </ol>
+      <ol class="list-group list-group-flush m-2" id="list"></ol>
     </div>
   </body>
 </html>
